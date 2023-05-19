@@ -369,7 +369,4 @@
         </interface>
         <fqname>@2.0::ISupplicant/default</fqname>
     </hal>
-    <sepolicy>
-        <version>28.0</version>
-    </sepolicy>
 </manifest>
