@@ -39,10 +39,26 @@ PRODUCT_AAPT_PREF_CONFIG := xhdpi
 PRODUCT_PACKAGES += \
     RemovePackages
 
-# Rootdir
+# Ramdisk
 PRODUCT_PACKAGES += \
+    factory_init.connectivity.rc \
+    factory_init.project.rc \
+    factory_init.rc \
+    init.aee.rc \
+    init.ago.rc \
+    init.connectivity.rc \
+    init.modem.rc \
     init.mt8167.rc \
-    fstab.enableswap
+    init.mt8167.usb.rc \
+    init.project.rc \
+    init.sensor_1_0.rc \
+    meta_init.connectivity.rc \
+    meta_init.modem.rc \
+    meta_init.project.rc \
+    meta_init.rc \
+    multi_init.rc \
+    fstab.mt8167 \
+    ueventd.qcom.rc \
 
 # Soong
 PRODUCT_SOONG_NAMESPACES += \
@@ -56,3 +72,6 @@ $(call inherit-product, build/target/product/verity.mk)
 # VNDK
 PRODUCT_EXTRA_VNDK_VERSIONS := 28
 PRODUCT_TARGET_VNDK_VERSION := 28
+
+# OSS Vendor
+$(call inherit-product-if-exists, vendor/unowhy/k1002/k1002-vendor.mk)
