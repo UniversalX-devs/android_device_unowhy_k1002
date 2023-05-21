@@ -669,7 +669,7 @@ on property:vendor.crypto.fake_encrypt=1 && property:vold.post_fs_data_done=1
 # service bootlogoupdater /vendor/bin/boot_logo_updater
 #    oneshot
 
-service ueventd /sbin/ueventd
+service ueventd /system/bin/ueventd
     class core
     critical
     seclabel u:r:ueventd:s0
