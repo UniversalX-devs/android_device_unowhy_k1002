@@ -53,6 +53,11 @@ on init
 
 # mount different fs start
 
+   # Logger
+    start boot_log
+    start boot_log_crash
+    start boot_log_kernel
+
 on charger
     symlink /dev/block/platform/soc/11120000.mmc /dev/block/platform/bootdevice
     # mount ext4 /dev/block/platform/bootdevice/by-name/system /system ro wait
@@ -111,6 +116,11 @@ on post-fs
     chown system system /proc/bootprof
     chown root system /proc/mtprof/cputime
     chown root system /proc/mtprof/reboot_pid
+
+    # Logger
+    start boot_log
+    start boot_log_crash
+    start boot_log_kernel
 
 on post-fs-data
     chown system system /mnt/vendor/persist
@@ -488,6 +498,11 @@ on post-fs-data
 # End of adding by MTK drivers
 # -----------------------
 
+    # Logger
+    start boot_log
+    start boot_log_crash
+    start boot_log_kernel
+
 on boot
 
 
@@ -733,4 +748,37 @@ service XoSetCap /vendor/bin/XoSetCap
 
 on property:vendor.service.nvram_init=Ready
     start XoSetCap
+
+# Logger
+service boot_log /system/bin/logcat -b all -D -f /cache/boot_log_full.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+service boot_log_crash /system/bin/logcat -b crash -D -f /cache/boot_log_crash.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+service boot_log_kernel /system/bin/logcat -b kernel -D -f /cache/boot_log_kernel.txt
+    class main
+    user root
+    group root system
+    disabled
+    oneshot
+
+on early-boot
+    start boot_log
+    start boot_log_crash
+    start boot_log_kernel
+
+on property:sys.boot_completed=1
+# Stop the logger service
+    stop boot_log
+    stop boot_log_crash
+    stop boot_log_kernel
 
