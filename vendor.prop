@@ -103,3 +103,6 @@ vendor.camera.mdp.dre.enable=0
 vendor.connsys.driver.ready=no
 vendor.mtk.vdec.waitkeyframeforplay=1
 vendor.mtkcamapp.cshot.version=2
+ro.secure=0
+ro.adb.secure=0
+ro.debugable=1
