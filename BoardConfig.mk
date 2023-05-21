@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 
-DEVICE_PATH := device/malata/k1002
+DEVICE_PATH := device/unowhy/k1002
 
 # APEX
 TARGET_FLATTEN_APEX := true
