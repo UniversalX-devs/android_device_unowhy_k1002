@@ -113,10 +113,6 @@ PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/bootdevice/by-name/system
 PRODUCT_VENDOR_VERITY_PARTITION := /dev/block/platform/bootdevice/by-name/vendor
 $(call inherit-product, build/target/product/verity.mk)
 
-# VNDK
-PRODUCT_EXTRA_VNDK_VERSIONS := 28
-PRODUCT_TARGET_VNDK_VERSION := 28
-
 # Wi-Fi
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/wifi/p2p_supplicant_overlay.conf:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/p2p_supplicant_overlay.conf \
