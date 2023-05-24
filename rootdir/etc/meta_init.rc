@@ -6,10 +6,10 @@
 import /init.environ.rc
 import /vendor/etc/init/hw/init.aee.rc
 import /system/etc/init/hw/init.aee.rc
-import ${ro.vendor.rc}meta_init.connectivity.rc
+import /vendor/etc/init/hw/meta_init.connectivity.rc
 import /vendor/etc/init/hw/meta_init.project.rc
 #Make sure meta_init.modem.rc is the last rc file.
-import ${ro.vendor.rc}meta_init.modem.rc
+import /vendor/etc/init/hw/meta_init.modem.rc
 import /vendor/etc/init/wlan_assistant.rc
 
 on early-init
@@ -226,7 +226,7 @@ on fs
 #INTERNAL_START
     write /proc/bootprof "INIT:Mount_START"
     symlink /dev/block/platform/soc/11120000.mmc /dev/block/platform/bootdevice
-    mount_all /vendor/etc/fstab.mt8167 ${ro.vendor.rc}multi_init.rc
+    mount_all /vendor/etc/fstab.mt8167 /vendor/etc/init/hw/multi_init.rc
     write /proc/bootprof "INIT:Mount_END"
 #INTERNAL_END
 
