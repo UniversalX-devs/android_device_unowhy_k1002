@@ -8,6 +8,7 @@ DEVICE_PATH := device/unowhy/k1002
 
 # APEX
 TARGET_FLATTEN_APEX := true
+DEXPREOPT_GENERATE_APEX_IMAGE := true
 
 # Architecture
 TARGET_ARCH := arm64
