@@ -105,6 +105,7 @@ PRODUCT_PACKAGES += \
     meta_init.rc \
     multi_init.rc \
     fstab.mt8167 \
+    fstab.mt8167_ramdisk \
     ueventd.qcom.rc \
 
 # Soong
